@@ -9,6 +9,7 @@ import { SelectedFlightComponent } from './bonus/selected-flight/selected-flight
 import { FilterComponent } from './components/flight-result/filter/filter.component';
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormatMin } from './pipes/formatMinIntoHour.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     FlightResultComponent,
     SelectedFlightComponent,
     FilterComponent,
-    FlightCardComponent
+    FlightCardComponent ,
+    FormatMin
   ],
   imports: [
     BrowserModule,
