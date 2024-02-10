@@ -1,12 +1,6 @@
 <div class="card">
   <div class="card-body">
     <div *ngFor="let airLine of AirLineList">
-      <!-- <mat-checkbox 
-      [value]="airLine"
-      (click)="$event.stopPropagation()"
-       (change)="selectAirLine($event)" >
-        {{airLine}}
-      </mat-checkbox> -->
 
       <mat-checkbox
        [value]="airLine" 
@@ -22,6 +16,11 @@
       <input [(ngModel)]="filters.priceRange.min" matSliderStartThumb>
       <input [(ngModel)]="filters.priceRange.hight" matSliderEndThumb>
     </mat-slider>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Dep Airport</mat-label>
+        <input matInput type="text" [(ngModel)]="filters.depAirport" >
+    </mat-form-field>
 
     <button class="btn btn-dark" (click)="filter()">Search</button>
     <button class="btn btn-dark" (click)="reset()">reset</button>

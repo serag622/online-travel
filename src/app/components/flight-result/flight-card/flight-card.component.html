@@ -12,7 +12,7 @@
       <p>end : {{AirItinerary.arrivalDate | date : 'short'}} {{AirItinerary.baggageInformation[AirItinerary.baggageInformation.length -1].landCity}} </p>
       <p>Duration : {{AirItinerary.totalDuration | FormatMin}}</p>
       <p>Price : {{AirItinerary.itinTotalFare.amount}} {{AirItinerary.itinTotalFare.currencyCode}}</p>
-
+        {{AirItinerary.allJourney.flights[0].flightDTO[0].departureTerminalAirport.airportName}}
     </div>
 
   </div>

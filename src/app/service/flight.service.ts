@@ -31,8 +31,9 @@ export class FlightsService {
     searchFlights(criteria: filters) {
         return this.http.get(`${this.basUrl}`).pipe(map((res: any) => {
             return res.airItineraries.filter((asd : AirItinerary)=> 
-              criteria.AirLine.length ? (criteria.AirLine.findIndex((c)=> c == asd.allJourney.flights[0].flightAirline.airlineName) > -1 && asd.itinTotalFare.amount >= criteria.priceRange.min && asd.itinTotalFare.amount <= criteria.priceRange.hight)
-              : asd.itinTotalFare.amount >= criteria.priceRange.min && asd.itinTotalFare.amount <= criteria.priceRange.hight
+              criteria.AirLine.length ? 
+              (criteria.AirLine.findIndex((c)=> c == asd.allJourney.flights[0].flightAirline.airlineName) > -1 && asd.itinTotalFare.amount >= criteria.priceRange.min && asd.itinTotalFare.amount <= criteria.priceRange.hight && (criteria.depAirport ? asd.allJourney.flights[0].flightDTO[0].departureTerminalAirport.airportName.toLocaleLowerCase().includes(criteria.depAirport ?criteria.depAirport.toLocaleLowerCase() : '' ) : true ) )
+              :( asd.itinTotalFare.amount >= criteria.priceRange.min && asd.itinTotalFare.amount <= criteria.priceRange.hight && (criteria.depAirport ? asd.allJourney.flights[0].flightDTO[0].departureTerminalAirport.airportName.toLocaleLowerCase().includes(criteria.depAirport ?criteria.depAirport.toLocaleLowerCase() : '' ) : true ))
             )
         }))
     }

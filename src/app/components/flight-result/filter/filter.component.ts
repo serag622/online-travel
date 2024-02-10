@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatCheckboxChange } from '@angular/material/checkbox';
 import { FlightsService } from 'src/app/service/flight.service';
 import { SelectionModel } from "@angular/cdk/collections";
 
@@ -14,6 +13,7 @@ export class FilterComponent implements OnInit {
 
   AirLineList : string[] = []
   filters : filters = {
+    depAirport : null ,
     AirLine : [] , 
     priceRange : {
       min : 100,
@@ -38,12 +38,14 @@ export class FilterComponent implements OnInit {
 
   filter(){
     this.filters.AirLine = this.selection.selected
+    this.filters.depAirport = this.filters.depAirport ? this.filters.depAirport.trim() : null
     this.newItemEvent.emit(this.filters);
   }
 
   reset(){
     this.selection.clear()
     this.filters = {
+      depAirport : null ,
       AirLine : [] , 
       priceRange : {
         min : 100,
@@ -58,6 +60,7 @@ export class FilterComponent implements OnInit {
 }
 
 export interface filters {
+  depAirport : string | null,
   AirLine : string[] ,
   priceRange : {min : number , hight : number }
 }

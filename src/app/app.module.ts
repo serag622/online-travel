@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSliderModule} from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule ,
     MatCheckboxModule ,
     MatSliderModule,
-    FormsModule
+    FormsModule ,
+    MatFormFieldModule ,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
