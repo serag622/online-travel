@@ -1,7 +1,18 @@
 <div class="card">
   <div class="card-body">
     <div *ngFor="let airLine of AirLineList">
-      <mat-checkbox [value]="airLine" (change)="selectAirLine($event)" >
+      <!-- <mat-checkbox 
+      [value]="airLine"
+      (click)="$event.stopPropagation()"
+       (change)="selectAirLine($event)" >
+        {{airLine}}
+      </mat-checkbox> -->
+
+      <mat-checkbox
+       [value]="airLine" 
+       (click)="$event.stopPropagation()"
+        (change)="$event ? selection.toggle(airLine) : null"
+        [checked]="selection.isSelected(airLine)">
         {{airLine}}
       </mat-checkbox>
     </div>

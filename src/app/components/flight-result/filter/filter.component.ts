@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { FlightsService } from 'src/app/service/flight.service';
+import { SelectionModel } from "@angular/cdk/collections";
 
 @Component({
   selector: 'app-filter',
@@ -19,13 +20,14 @@ export class FilterComponent implements OnInit {
       hight : 2000
     }
   }
+  selection = new SelectionModel<string>(true, []);
+
 
   @Output() newItemEvent = new EventEmitter<filters>();
 
   ngOnInit(): void {
     this.getAllAirlines()
   }
-
 
   getAllAirlines(){
     this.flightsService.getAllAirlines().subscribe((res=>{
@@ -34,19 +36,13 @@ export class FilterComponent implements OnInit {
   }
 
 
-  selectAirLine(value : MatCheckboxChange){
-    if(value.checked){
-      this.filters?.AirLine.push(value.source.value)
-    }else{
-      this.filters.AirLine = this.filters?.AirLine.filter((air)=> air != value.source.value)
-    }
-  }
-
   filter(){
+    this.filters.AirLine = this.selection.selected
     this.newItemEvent.emit(this.filters);
   }
 
   reset(){
+    this.selection.clear()
     this.filters = {
       AirLine : [] , 
       priceRange : {
@@ -57,6 +53,7 @@ export class FilterComponent implements OnInit {
     this.newItemEvent.emit(this.filters);
 
 }
+
 
 }
 
