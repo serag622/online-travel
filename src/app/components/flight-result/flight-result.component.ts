@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AirItinerary } from 'src/app/models/Flight,model';
 import { FlightsService } from 'src/app/service/flight.service';
+import { filters } from './filter/filter.component';
 
 @Component({
   selector: 'app-flight-result',
@@ -53,4 +54,13 @@ export class FlightResultComponent implements OnInit {
     this.getViwedList()
   }
 
+
+  addItem($event : filters){
+    this.page = 1;
+    this.flightsService.searchFlights($event).subscribe((res)=>{
+      this.AirItinerariesList =  res;
+      this.totalElemets = this.AirItinerariesList.length
+      this.getViwedList()
+    })
+  }
 }

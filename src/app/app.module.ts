@@ -10,6 +10,10 @@ import { FilterComponent } from './components/flight-result/filter/filter.compon
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormatMin } from './pipes/formatMinIntoHour.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSliderModule} from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { FormatMin } from './pipes/formatMinIntoHour.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule ,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule ,
+    MatCheckboxModule ,
+    MatSliderModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

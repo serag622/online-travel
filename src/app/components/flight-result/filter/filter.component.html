@@ -1,1 +1,19 @@
-<p>filter works!</p>
+<div class="card">
+  <div class="card-body">
+    <div *ngFor="let airLine of AirLineList">
+      <mat-checkbox [value]="airLine" (change)="selectAirLine($event)" >
+        {{airLine}}
+      </mat-checkbox>
+    </div>
+    <hr>
+
+    <mat-slider [min]="100" [max]="2000" [showTickMarks]="true" [discrete]="true">
+      <input [(ngModel)]="filters.priceRange.min" matSliderStartThumb>
+      <input [(ngModel)]="filters.priceRange.hight" matSliderEndThumb>
+    </mat-slider>
+
+    <button class="btn btn-dark" (click)="filter()">Search</button>
+    <button class="btn btn-dark" (click)="reset()">reset</button>
+
+  </div>
+</div>
