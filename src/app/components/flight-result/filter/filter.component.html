@@ -1,29 +1,38 @@
 <div class="card">
   <div class="card-body ">
-    <div *ngFor="let airLine of AirLineList">
 
-      <mat-checkbox
-       [value]="airLine" 
-       (click)="$event.stopPropagation()"
-        (change)="$event ? selection.toggle(airLine) : null"
-        [checked]="selection.isSelected(airLine)">
-        {{airLine}}
-      </mat-checkbox>
+    <div>
+      <h5 class="fw-bold">Departure Airport</h5>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Airport Name</mat-label>
+        <input matInput type="text" pattern="[ a-zA-Z]*" [(ngModel)]="filters.depAirport">
+      </mat-form-field>
     </div>
     <hr>
 
-    <mat-slider [min]="100" [max]="2000" [showTickMarks]="true" [discrete]="true">
-      <input [(ngModel)]="filters.priceRange.min" matSliderStartThumb>
-      <input [(ngModel)]="filters.priceRange.hight" matSliderEndThumb>
-    </mat-slider>
+    <div class="p-2">
+      <h5 class="fw-bold">Price Range</h5>
+      <mat-slider class="w-100" [min]="100" [max]="2000" [showTickMarks]="true" [discrete]="true">
+        <input [(ngModel)]="filters.priceRange.min" matSliderStartThumb>
+        <input [(ngModel)]="filters.priceRange.hight" matSliderEndThumb>
+      </mat-slider>
+    </div>
+    <hr>
 
-    <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Dep Airport</mat-label>
-        <input matInput  type="text" pattern="[ a-zA-Z]*" [(ngModel)]="filters.depAirport" >
-    </mat-form-field>
+    <div>
+      <h5 class="fw-bold">Air Lines</h5>
+        <mat-checkbox class="d-block" *ngFor="let airLine of AirLineList" [value]="airLine" (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(airLine) : null" [checked]="selection.isSelected(airLine)">
+          {{airLine}}
+        </mat-checkbox>
+    </div>
 
-    <button class="btn btn-dark mx-1" (click)="filter()">Search</button>
-    <button class="btn btn-dark" (click)="reset()">reset</button>
+
+    <div class="d-flex">
+      <button class="btn btn-dark mx-1" (click)="filter()">Search</button>
+      <button class="btn btn-dark" (click)="reset()">reset</button>
+    </div>
+
 
   </div>
 </div>
