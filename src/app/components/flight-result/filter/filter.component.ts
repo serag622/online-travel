@@ -12,7 +12,7 @@ export class FilterComponent implements OnInit {
   constructor( private flightsService : FlightsService){}
 
   AirLineList : string[] = []
-  filters : filters = {
+  filters : Filters = {
     depAirport : null ,
     AirLine : [] , 
     priceRange : {
@@ -23,7 +23,7 @@ export class FilterComponent implements OnInit {
   selection = new SelectionModel<string>(true, []);
 
 
-  @Output() SearchAirItineraries = new EventEmitter<filters>();
+  @Output() SearchAirItineraries = new EventEmitter<Filters>();
 
   ngOnInit(): void {
     this.getAllAirlines()
@@ -59,7 +59,7 @@ export class FilterComponent implements OnInit {
 
 }
 
-export interface filters {
+export interface Filters {
   depAirport : string | null,
   AirLine : string[] ,
   priceRange : {min : number , hight : number }
