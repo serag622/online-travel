@@ -5,7 +5,8 @@
       <h5 class="fw-bold">Departure Airport</h5>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Airport Name</mat-label>
-        <input matInput type="text"  [pattern]="'^[a-zA-Z \-\']$'" [(ngModel)]="filters.depAirport">
+        <input matInput type="text"  [(ngModel)]="filters.depAirport">
+        
       </mat-form-field>
     </div>
     <hr>
