@@ -2,7 +2,7 @@
 
   <div class="row g-3">
     <div class="col-md-3 ">
-       <app-filter class="sticky-top" (newItemEvent)="addItem($event)" ></app-filter>
+       <app-filter class="sticky-top" (SearchAirItineraries)="SearchAirItineraries($event)" ></app-filter>
     </div>
 
 
@@ -13,11 +13,11 @@
           </div>
         
           <div class="my-4 d-flex justify-content-center">
-            <button class="btn btn-dark" [disabled]="this.page == 1 " (click)="PrevPage()">Prev</button>
+            <button class="btn btn-dark mx-1" [disabled]="this.page == 1 " (click)="PrevPage()">Prev</button>
             <span class="p-2 border border-2 border-dark mx-2 rounded-3 " style="cursor: pointer;"
               *ngFor="let n of [].constructor(PagesList);  let i = index" [ngClass]="{'bg-success text-light' : page == i+1}"
               (click)="gotoPage(i+1)">{{i+1}}</span>
-            <button class="btn btn-dark" [disabled]="this.page == this.PagesList " (click)="nextPage()">next</button>
+            <button class="btn btn-dark mx-1" [disabled]="page == PagesList ||  PagesList == 0" (click)="nextPage()">next</button>
           </div>
     </div>
 

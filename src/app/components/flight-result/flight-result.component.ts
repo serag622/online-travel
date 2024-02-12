@@ -55,7 +55,7 @@ export class FlightResultComponent implements OnInit {
   }
 
 
-  addItem($event : filters){
+  SearchAirItineraries($event : filters){
     this.page = 1;
     this.flightsService.searchFlights($event).subscribe((res)=>{
       this.AirItinerariesList =  res;

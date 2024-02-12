@@ -23,7 +23,7 @@ export class FilterComponent implements OnInit {
   selection = new SelectionModel<string>(true, []);
 
 
-  @Output() newItemEvent = new EventEmitter<filters>();
+  @Output() SearchAirItineraries = new EventEmitter<filters>();
 
   ngOnInit(): void {
     this.getAllAirlines()
@@ -39,7 +39,7 @@ export class FilterComponent implements OnInit {
   filter(){
     this.filters.AirLine = this.selection.selected
     this.filters.depAirport = this.filters.depAirport ? this.filters.depAirport.trim() : null
-    this.newItemEvent.emit(this.filters);
+    this.SearchAirItineraries.emit(this.filters);
   }
 
   reset(){
@@ -52,7 +52,7 @@ export class FilterComponent implements OnInit {
         hight : 2000
       }
     }
-    this.newItemEvent.emit(this.filters);
+    this.SearchAirItineraries.emit(this.filters);
 
 }
 
