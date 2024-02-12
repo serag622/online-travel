@@ -1,18 +1,33 @@
 
-<div class="card">
+<div class="card shadow">
     <div class="card-header d-flex align-items-center">
-        <img [src]="AirItinerary.allJourney.flights[0].flightAirline.airlineLogo" class="img-fluid mx-2">
-        <span class="fw-bold fs-4"> {{AirItinerary.allJourney.flights[0].flightAirline.airlineName}} </span>
+        <img [src]="AirItinerary.allJourney.flights[0].flightAirline.airlineLogo" class="img-fluid w-25 mx-2">
+        <span class="fw-bold fs-6"> {{AirItinerary.allJourney.flights[0].flightAirline.airlineName}} </span>
     </div>
 
     <div class="card-body">
-      <div>stopsNum : {{AirItinerary.allJourney.flights[0].stopsNum}}</div>
-      <p>start : {{AirItinerary.deptDate | date : 'short' }} {{AirItinerary.baggageInformation[0].deptCity}} </p>
 
-      <p>end : {{AirItinerary.arrivalDate | date : 'short'}} {{AirItinerary.baggageInformation[AirItinerary.baggageInformation.length -1].landCity}} </p>
-      <p>Duration : {{AirItinerary.totalDuration | FormatMin}}</p>
+      <div class="d-flex justify-content-between align-items-center my-2">
+        <div class="border border-2 rounded-3 p-2 ">
+          <p class="text-muted fw-bold">{{AirItinerary.baggageInformation[0].deptCity}}</p>
+          <p>{{AirItinerary.deptDate | date : 'short' }}</p>
+        </div>
+        <div> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="trending_flat"></mat-icon>  </div>
+
+        <div class="border border-2 rounded-3 p-2">
+          <p class="text-muted fw-bold">{{AirItinerary.baggageInformation[AirItinerary.baggageInformation.length -1].landCity}}</p>
+          <p> {{AirItinerary.arrivalDate | date : 'short'}}</p>
+        </div>
+
+      </div>
+
+      <div class="d-flex justify-content-between" >
+        <p class="" >Stops : {{AirItinerary.allJourney.flights[0].stopsNum}} </p>
+        <p class="">Duration : {{AirItinerary.totalDuration | FormatMin}}</p>
+      </div>
+
+      
       <p>Price : {{AirItinerary.itinTotalFare.amount}} {{AirItinerary.itinTotalFare.currencyCode}}</p>
-        {{AirItinerary.allJourney.flights[0].flightDTO[0].departureTerminalAirport.airportName}}
     </div>
 
   </div>
