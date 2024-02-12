@@ -19,7 +19,7 @@
 
     <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Dep Airport</mat-label>
-        <input matInput inputFilter  type="text"  [(ngModel)]="filters.depAirport" >
+        <input matInput  type="text" pattern="[ a-zA-Z]*" [(ngModel)]="filters.depAirport" >
     </mat-form-field>
 
     <button class="btn btn-dark mx-1" (click)="filter()">Search</button>

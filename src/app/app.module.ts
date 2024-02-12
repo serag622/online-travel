@@ -16,7 +16,6 @@ import {MatSliderModule} from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from "@angular/material/input";
-import { inputFilterDirective } from './directives/noArabicInput.dir';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { inputFilterDirective } from './directives/noArabicInput.dir';
     FilterComponent,
     FlightCardComponent ,
     FormatMin ,
-    inputFilterDirective
   ],
   imports: [
     BrowserModule,
